@@ -127,7 +127,7 @@ $users = $this->db->query("SELECT * FROM tb_users WHERE id='".$id_user."'")->row
    </tr>
    <tr>
        <td></td>
-       <td style="font-weight: bold;"><center><?php echo $mengetahui_1[0]." <br>NIM. ".$mengetahui_1[2]; ?></center> </td>
+       <td style="font-weight: bold;"><center><?php echo $mengetahui_1[0]." <br>NIDN. ".$mengetahui_1[2]; ?></center> </td>
        <td style="text-align: right; font-weight: bold;"><center><?php echo $mengetahui_2[0]." "."<br> NIM. ".$mengetahui_2[2]; ?></center> </td>
    </tr>
 </table>
