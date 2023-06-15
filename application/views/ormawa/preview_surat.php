@@ -73,7 +73,7 @@ $users = $this->db->query("SELECT * FROM tb_users WHERE id='".$id_user."'")->row
                         <td>: <b><?php echo $detil['tempat']; ?></b></td>
                     </tr>
                 </table>
-                <br>Maka demi terlaksananya acara tersebut, kami bermaksud mengajukan permohonan dana. Sebagai bahan pertimbangan, berikut kami lampirkan agenda dan anggaran dana yang kami butuhkan dalam acara tersebut.
+                <br>Maka demi terlaksananya acara tersebut, kami bermaksud mengajukan <?php echo strtolower($detil['hal']); ?>. Sebagai bahan pertimbangan, berikut kami lampirkan agenda dan anggaran dana yang kami butuhkan dalam acara tersebut.
                 Demikian Permohonan Dana ini kami buat, atas perhatian dan kerjasamanya kami sampaikan terima kasih 
                 <br><label style="font-style: italic;">Wallahul Muwaffieq Ilaa Aqwamit-Thorieq <br>Wassalamu’alaikum Wr. Wb</label>
             </td>

@@ -86,11 +86,8 @@
                   <input type="text" class="form-control" name="no_surat" value="<?php echo rand(1000, 9999); ?>/<?php echo strtoupper($this->session->userdata['username']['username']); ?>/II/AA/IX/<?php echo date('Y'); ?>" placeholder="Nomor Surat" value="<?php echo $dt['no_surat']; ?>">
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Hal</label>
-                  <select class="form-control" name="hal">
-                    <option value="">Pilih hal</option>
-                    <option value="Permohonan Dana" <?php echo ($dt['hal']=='Permohonan Dana') ? "selected" : ""; ?>>Permohonan Dana</option>
-                  </select>
+                  <label for="exampleInputEmail1">Perihal</label>
+                  <input type="text" name="hal" class="form-control" value="<?php echo $dt['hal']; ?>" placeholder="Perihal Surat">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Kepada</label>
