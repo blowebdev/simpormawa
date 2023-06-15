@@ -18,6 +18,7 @@
   <!-- Custom CSS -->
   <link href="<?php echo base_url() ?>assets/css/style.css" rel="stylesheet">
   <link href="<?php echo base_url() ?>assets/bower_components/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+  <script src="<?php echo base_url() ?>assets/chart/canvasjs.min.js"></script>
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -101,6 +102,7 @@
 <!-- Custom Theme JavaScript -->
 <script src="<?php echo base_url() ?>assets/js/myadmin.js"></script>
 <script src="<?php echo base_url() ?>assets/js/ckeditor.js"></script>
+
 
 <script type="text/javascript">
   $(document).ready(function(){

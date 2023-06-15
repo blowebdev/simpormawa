@@ -83,7 +83,7 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Nomor Surat</label>
-                  <input type="text" class="form-control" name="no_surat" placeholder="Nomor Surat" value="<?php echo $dt['no_surat']; ?>">
+                  <input type="text" class="form-control" name="no_surat" value="<?php echo rand(1000, 9999); ?>/<?php echo strtoupper($this->session->userdata['username']['username']); ?>/II/AA/IX/<?php echo date('Y'); ?>" placeholder="Nomor Surat" value="<?php echo $dt['no_surat']; ?>">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Hal</label>

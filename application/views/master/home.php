@@ -79,6 +79,42 @@
         </div>
       </div>
     </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="white-box">
+          <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+        </div>
+      </div>
+    </div>
   </div>
   <!-- /.container-fluid -->
 </div>
+<script>
+  window.onload = function () {
+
+    var chart = new CanvasJS.Chart("chartContainer", {
+      animationEnabled: true,
+      theme: "light2",
+      title:{
+        text: "Total ormawa yang sering kirim proposal"
+      },
+      axisY: {
+        title: "Total"
+      },
+      data: [{        
+        type: "line",  
+        showInLegend: false,
+        dataPoints: [      
+        <?php 
+        $w = $this->db->query("SELECT v.nama, v.organisasi, count(*) as total FROM ( SELECT b.nama, b.organisasi, a.id FROM tb_proposal as a LEFT JOIN tb_users as b ON a.id_user = b.id ) AS v GROUP BY v.nama, v.organisasi")->result_array();
+        foreach ($w as $key => $hasil) {?>
+          { y: <?php echo $hasil['total']; ?>, label: "<?php echo $hasil['nama']; ?>" },
+
+        <?php } ?>
+        ]
+      }]
+    });
+    chart.render();
+
+  }
+</script>
