@@ -70,7 +70,17 @@
          </li> -->
          <li class="nav-small-cap">Menu Aplikasi</li>
          <li> <a href="<?php echo base_url() ?>dashboard" class="waves-effect"><i class="ti-home fa-fw"></i> Dashboard</a> </li>
-         <li> <a href="<?php echo base_url() ?>proposal" class="waves-effect"><i class=" ti-clipboard fa-fw"></i> Data Proposal</a> </li>
+         <li> <a href="<?php echo base_url() ?>proposal" class="waves-effect"><i class=" ti-clipboard fa-fw"></i> Data Proposal 
+          <?php if($this->session->userdata('username')['level']==1) :  
+            $total_proposal = $this->db->query("SELECT * FROM `tb_proposal` WHERE status=1")->num_rows();
+          ?>
+          <span class="badge bg-danger"><?php echo $total_proposal ?></span>
+          <?php elseif($this->session->userdata('username')['level']==1) : 
+            $total_proposal = $this->db->query("SELECT * FROM `tb_proposal` WHERE status=2")->num_rows();
+          ?>
+          <span class="badge bg-danger"><?php echo $total_proposal ?></span>
+          <?php endif; ?>
+         </a> </li>
          <li> <a href="<?php echo base_url() ?>users" class="waves-effect"><i class="ti-user fa-fw"></i> Data Users</a> </li>
          <li> <a href="<?php echo base_url() ?>dana" class="waves-effect"><i class="  ti-credit-card fa-fw"></i> Data Dana</a> </li>
          <li> <a href="<?php echo base_url() ?>logout" class="waves-effect"><i class="icon-logout fa-fw"></i> Logout</a> </li>
