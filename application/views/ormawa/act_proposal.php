@@ -79,57 +79,57 @@
                 <form action="" method="POST">
                  <div class="form-group">
                   <label for="exampleInputEmail1">Judul Acara</label>
-                  <input type="text" class="form-control" name="acara" placeholder="Judul Acara" value="<?php echo $dt['acara']; ?>">
+                  <input type="text" class="form-control" name="acara" placeholder="Judul Acara" value="<?php echo $dt['acara']; ?>" required="">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Nomor Surat</label>
-                  <input type="text" class="form-control" name="no_surat" value="<?php echo rand(1000, 9999); ?>/<?php echo strtoupper($this->session->userdata['username']['username']); ?>/II/AA/IX/<?php echo date('Y'); ?>" placeholder="Nomor Surat" value="<?php echo $dt['no_surat']; ?>">
+                  <input type="text" class="form-control" name="no_surat" value="<?php echo rand(1000, 9999); ?>/<?php echo strtoupper($this->session->userdata['username']['username']); ?>/II/AA/IX/<?php echo date('Y'); ?>" placeholder="Nomor Surat" value="<?php echo $dt['no_surat']; ?>" required="">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Perihal</label>
-                  <input type="text" name="hal" class="form-control" value="<?php echo $dt['hal']; ?>" placeholder="Perihal Surat">
+                  <input type="text" name="hal" class="form-control" value="<?php echo $dt['hal']; ?>" placeholder="Perihal Surat" required="">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Kepada</label>
-                  <input type="text" class="form-control" name="kepada" placeholder="Ditunjukan kepada" value="<?php echo $dt['kepada']; ?>">
+                  <input type="text" class="form-control" name="kepada" placeholder="Ditunjukan kepada" value="<?php echo $dt['kepada']; ?>" required="">
                 </div>
 
                 <div class="form-group">
                   <label for="exampleInputEmail1">Tanggal Acara</label>
-                  <input type="date" class="form-control" name="tgl_acara" placeholder="Tanggal" value="<?php echo $dt['tgl_acara']; ?>">
+                  <input type="date" class="form-control" name="tgl_acara" placeholder="Tanggal" value="<?php echo $dt['tgl_acara']; ?>" required="">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Tempat</label>
-                  <input type="text" class="form-control" name="tempat" placeholder="Tempat Acara" value="<?php echo $dt['tempat']; ?>">
+                  <input type="text" class="form-control" name="tempat" placeholder="Tempat Acara" value="<?php echo $dt['tempat']; ?>" required="">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Ketua</label>
-                  <input type="text" class="form-control" name="ketua" placeholder="Ketua Acara" value="<?php echo $dt['ketua']; ?>">
+                  <input type="text" class="form-control" name="ketua" placeholder="Ketua Acara" value="<?php echo $dt['ketua']; ?>" required="">
                   <i>Penulisan : Nama, Nim dan jabatan dipisah dengan tanda "|" contoh "Muhammad|ketua bem|123"</i>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Sekertaris</label>
-                  <input type="text" class="form-control" name="sekertaris" placeholder="Sekertaris Acara" value="<?php echo $dt['sekertaris']; ?>">
+                  <input type="text" class="form-control" name="sekertaris" placeholder="Sekertaris Acara" value="<?php echo $dt['sekertaris']; ?>" required="">
                   <i>Penulisan : Nama, Nim dan jabatan dipisah dengan tanda "|" contoh "Muhammad|ketua bem|123"</i>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Tanggal Surat</label>
-                  <input type="date" class="form-control" name="tgl_surat" placeholder="Tanggal Surat" value="<?php echo $dt['tgl_surat']; ?>">
+                  <input type="date" class="form-control" name="tgl_surat" placeholder="Tanggal Surat" value="<?php echo $dt['tgl_surat']; ?>" required="">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Mengetahui 1</label>
-                  <input type="text" class="form-control" name="mengetahui_1" placeholder="Mengetahui 1" value="<?php echo $dt['mengetahui_1']; ?>">
+                  <input type="text" class="form-control" name="mengetahui_1" placeholder="Mengetahui 1" value="<?php echo $dt['mengetahui_1']; ?>" required="">
                   <i>Penulisan : Nama, Nim dan jabatan dipisah dengan tanda "|" contoh "Muhammad|ketua bem|123"</i>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Mengetahui 2</label>
-                  <input type="text" class="form-control" name="mengetahui_2" placeholder="Mengetahui 2" value="<?php echo $dt['mengetahui_2']; ?>">
+                  <input type="text" class="form-control" name="mengetahui_2" placeholder="Mengetahui 2" value="<?php echo $dt['mengetahui_2']; ?>" required="">
                   <i>Penulisan : Nama, Nim dan jabatan dipisah dengan tanda "|" contoh "Muhammad|ketua bem|123"</i>
                 </div>
                 <hr>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Halaman Pengesahan</label>
-                  <textarea class="form-control" rows="15" name="halaman_pengesahan" id="halaman_pengesahan">
+                  <textarea class="form-control" rows="15" name="halaman_pengesahan" id="halaman_pengesahan" required="">
                   <?php if(!empty($dt['halaman_pengesahan'])){
                     echo $dt['halaman_pengesahan'];
                   } else {
@@ -139,7 +139,7 @@
                 <hr>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Halaman Proposal</label>
-                  <textarea class="form-control" rows="30" name="halaman_proposal" id="halaman_proposal">
+                  <textarea class="form-control" rows="30" name="halaman_proposal" id="halaman_proposal" required="">
                   <?php if(!empty($dt['halaman_proposal'])){
                     echo $dt['halaman_proposal'];
                   } else{
@@ -149,7 +149,7 @@
 
                 <div class="form-group">
                   <label for="exampleInputEmail1">Lampiran I</label>
-                  <textarea class="form-control" rows="30" name="halaman_agenda" id="halaman_agenda">
+                  <textarea class="form-control" rows="30" name="halaman_agenda" id="halaman_agenda" required="">
                   <?php if(!empty($dt['halaman_agenda'])){
                     echo $dt['halaman_agenda'];
                   } else{
@@ -159,7 +159,7 @@
 
                  <div class="form-group">
                   <label for="exampleInputEmail1">Lampiran II</label>
-                  <textarea class="form-control" rows="30" name="halaman_anggaran" id="halaman_anggaran">
+                  <textarea class="form-control" rows="30" name="halaman_anggaran" id="halaman_anggaran" required="">
                   <?php if(!empty($dt['halaman_anggaran'])){
                     echo $dt['halaman_anggaran'];
                   } else{
