@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIMORMAWA</title>
+    <title>SIMPORMAWA</title>
     <link rel="icon" href="<?=base_url()?>assets/unipdu.ico" type="image/x-icon">
     <!-- Bootstrap CSS -->
     <link href="<?php echo base_url() ?>assets/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -34,7 +34,7 @@
                     action="<?php echo base_url() ?>login">
                     <div class="form-group">
                         <div class="col-xs-12">
-                            <h3><i class=""></i> SIMORMAWA</h3>
+                            <h3><i class=""></i> SIMPORMAWA</h3>
                             <p class="text-muted">Silahkan login untuk memulai</p>
                         </div>
                     </div>
