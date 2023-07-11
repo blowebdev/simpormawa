@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url() ?>assets/images/unipdu.png">
-    <title>SIMORMAWA</title>
+    <title>SIMPORMAWA</title>
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url() ?>assets/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Menu CSS -->
@@ -41,7 +41,7 @@
                     href="<?php echo base_url() ?>assets/javascript:void(0)" data-toggle="collapse"
                     data-target=".navbar-collapse"><i class="ti-menu"></i></a>
                 <div class="top-left-part"><a class="logo" href="<?php echo base_url() ?>assets/index.html"><i
-                            class="glyphicon glyphicon-users"></i>&nbsp;<span class="hidden-xs">SIMORMAWA</span></a>
+                            class="glyphicon glyphicon-users"></i>&nbsp;<span class="hidden-xs">SIMPORMAWA</span></a>
                 </div>
                 <ul class="nav navbar-top-links navbar-left hidden-xs">
                     <li><a href="javascript:void(0)" class="open-close hidden-xs waves-effect waves-light"><i

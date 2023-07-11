@@ -78,7 +78,7 @@
                              <div class="col-sm-12 col-xs-12">
                                  <form action="" method="POST">
                                      <div class="form-group">
-                                         <label for="exampleInputEmail1">Judul Acara</label>
+                                         <label for="exampleInputEmail1">Acara</label>
                                          <input type="text" class="form-control" name="acara" placeholder="Judul Acara"
                                              value="<?php echo $dt['acara']; ?>" required="">
                                      </div>
