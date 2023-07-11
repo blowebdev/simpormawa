@@ -47,6 +47,7 @@
             <thead>
               <tr>
                 <th>No</th>
+                <th>Nama Ormawa</th>
                 <th>Acara</th>
                 <th>Tanggal Acara</th>
                 <th>Tempat</th>
@@ -67,10 +68,12 @@
                 $q = $this->db->get('tb_proposal')->result_array();
               }
               foreach ($q as $key => $data) :
+                $nm_ormawa = $this->db->get_where('tb_users',array('id'=>$data['id_user']))->row_array();
                 ?>
                 <tr>
 
                   <td><?php echo $data['no_surat']; ?></td>
+                  <td><?php echo $nm_ormawa['organisasi']; ?></td>
                   <td><?php echo $data['acara']; ?></td>
                   <td><?php echo $data['tgl_acara']; ?></td>
                   <td><?php echo $data['tempat']; ?></td>

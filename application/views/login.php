@@ -20,7 +20,7 @@
 
 <body>
     <section id="wrapper" class="login-register">
-        <div style="position: fixed; padding-left: 500px; padding-top: 300px">
+        <div style="position: fixed; padding-left: 300px; padding-top: 150px">
             <img src="<?php echo base_url() ?>assets/images/unipdu.png">
         </div>
         <div class="login-box" style="padding-top: opx">

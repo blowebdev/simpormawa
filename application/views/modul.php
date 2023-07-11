@@ -53,7 +53,7 @@
 
                     <li class="dropdown"> <a class="dropdown-toggle profile-pic" data-toggle="dropdown"
                             href="<?php echo base_url() ?>assets/#"> <img
-                                src="<?php echo base_url() ?>assets/images/users/hritik.jpg" alt="user-img" width="36"
+                                src="<?php echo base_url(); ?>upload/<?php echo $this->session->userdata('username')['logo']; ?>" alt="user-img" width="36"
                                 class="img-circle"><b class="hidden-xs"><?php //echo ; ?></b> </a>
                         <ul class="dropdown-menu dropdown-user">
                             <li><a
