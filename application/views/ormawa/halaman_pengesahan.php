@@ -1,7 +1,7 @@
 <table width="100%">
     <tr>
         <td nowrap="" width="40%">1. Nama Kegiatan</td>
-        <td width="60%">: <b>Diisi Manual</b></td>
+        <td>: <i>Diisi Manual</i></td>
     </tr>
     <tr>
         <td nowrap="" width="40%">2. Nama Organisasi Pelaksana</td>

@@ -86,7 +86,7 @@
                                      </div>
 
                                      <button type="submit" type="submit" name="simpan"
-                                         class="btn btn-primary waves-effect waves-light">Simpan</button>
+                                         class="btn btn-primary waves-effect waves-light">ACC</button>
                                  </form>
                              </div>
                          </div>
