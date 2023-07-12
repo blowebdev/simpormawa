@@ -78,7 +78,7 @@
                              <div class="col-sm-12 col-xs-12">
                                  <form action="" method="POST">
                                      <div class="form-group">
-                                         <label for="exampleInputEmail1">Acara</label>
+                                         <label for="exampleInputEmail1">KOP Surat & Acara</label>
                                          <input type="text" class="form-control" name="acara" placeholder="Judul Acara"
                                              value="<?php echo $dt['acara']; ?>" required="">
                                      </div>
@@ -95,7 +95,7 @@
                                              value="<?php echo $dt['hal']; ?>" placeholder="Perihal Surat" required="">
                                      </div>
                                      <div class="form-group">
-                                         <label for="exampleInputEmail1">Kepada</label>
+                                         <label for="exampleInputEmail1">Kepada Yth.</label>
                                          <input type="text" class="form-control" name="kepada"
                                              placeholder="Ditunjukan kepada" value="<?php echo $dt['kepada']; ?>"
                                              required="">
@@ -195,7 +195,7 @@
                                      </div>
 
                                      <button type="submit" type="submit" name="simpan"
-                                         class="btn btn-primary waves-effect waves-light">Submit</button>
+                                         class="btn btn-primary waves-effect waves-light">Ajukan</button>
                                  </form>
                              </div>
                          </div>
