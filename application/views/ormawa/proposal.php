@@ -35,7 +35,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="white-box">
-          <?php if(in_array($this->session->userdata('username')['level'], array(1,4))) : ?>
+          <?php if(in_array($this->session->userdata('username')['level'], array(4))) : ?>
           <a href="<?php echo base_url(); ?>act_proposal" class="btn btn-primary">Buat Proposal</a>
 
           <br>
