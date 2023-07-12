@@ -97,8 +97,10 @@
                         </a> </li>
                     <li> <a href="<?php echo base_url() ?>users" class="waves-effect"><i class="ti-user fa-fw"></i> Data
                             Users</a> </li>
+                    <?php if(in_array($this->session->userdata('username')['level'], array(3))) : ?>
                     <li> <a href="<?php echo base_url() ?>dana" class="waves-effect"><i
                                 class="  ti-credit-card fa-fw"></i> Data Dana</a> </li>
+                    <?php endif; ?>
                     <li> <a href="<?php echo base_url() ?>logout" class="waves-effect"><i class="icon-logout fa-fw"></i>
                             Logout</a> </li>
                     <!-- /.nav-second-level -->

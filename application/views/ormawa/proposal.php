@@ -32,12 +32,21 @@
         ';
       }
     }?>
+<<<<<<< HEAD
          <div class="row">
              <div class="col-md-12">
                  <div class="white-box">
                      <?php if(in_array($this->session->userdata('username')['level'], array(4))) : ?>
                      <a href="<?php echo base_url(); ?>act_proposal" class="btn btn-primary">Buat Proposal</a>
 
+=======
+<<<<<<< HEAD
+    <div class="row">
+      <div class="col-md-12">
+        <div class="white-box">
+          <?php if(in_array($this->session->userdata('username')['level'], array(4))) : ?>
+          <a href="<?php echo base_url(); ?>act_proposal" class="btn btn-primary">Buat Proposal</a>
+>>>>>>> 2e34994451ec64764f94304179b2757d66b68b1b
                      <br>
                      <br>
                      <br>
