@@ -1,7 +1,7 @@
 <?php 
-$id_user = $this->session->userdata('username')['id'];
+// $id_user = $this->session->userdata('username')['id'];
 $detil = $this->db->query("SELECT * FROM tb_proposal WHERE id='".$_REQUEST['id']."'")->row_array();
-$users = $this->db->query("SELECT * FROM tb_users WHERE id='".$id_user."'")->row_array();
+$users = $this->db->query("SELECT * FROM tb_users WHERE id='".$detil['id_user']."'")->row_array();
 ?>
 <table width="100%" style="width: 100% !important">
     <tr>
