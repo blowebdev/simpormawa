@@ -85,7 +85,7 @@
                             Dashboard</a> </li>
                     <li> <a href="<?php echo base_url() ?>proposal" class="waves-effect"><i
                                 class=" ti-clipboard fa-fw"></i> Data Proposal
-                            <?php if($this->session->userdata('username')['level']==1) :  
+                            <?php if(in_array($this->session->userdata('username')['level'], array(1,2))) :  
             $total_proposal = $this->db->query("SELECT * FROM `tb_proposal` WHERE status=1")->num_rows();
           ?>
                             <span class="badge bg-danger"><?php echo $total_proposal ?></span>
@@ -97,7 +97,7 @@
                         </a> </li>
                     <li> <a href="<?php echo base_url() ?>users" class="waves-effect"><i class="ti-user fa-fw"></i> Data
                             Users</a> </li>
-                    <?php if(in_array($this->session->userdata('username')['level'], array(3))) : ?>
+                    <?php if(in_array($this->session->userdata('username')['level'], array(1,3))) : ?>
                     <li> <a href="<?php echo base_url() ?>dana" class="waves-effect"><i
                                 class="  ti-credit-card fa-fw"></i> Data Dana</a> </li>
                     <?php endif; ?>
