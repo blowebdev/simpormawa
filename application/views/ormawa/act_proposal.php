@@ -195,7 +195,7 @@
                                      </div>
 
                                      <button type="submit" type="submit" name="simpan"
-                                         class="btn btn-primary waves-effect waves-light">Ajukan</button>
+                                         class="btn btn-primary waves-effect waves-light">Ubah PDF</button>
                                  </form>
                              </div>
                          </div>
