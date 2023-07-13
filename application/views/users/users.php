@@ -37,7 +37,7 @@
        <div class="col-md-12">
            <div class="white-box">
 
-               <?php if(in_array($this->session->userdata('username')['level'], array(1))) : ?>
+               <?php if(in_array($this->session->userdata('username')['level'], array(1,2))) : ?>
                <a href="<?php echo base_url(); ?>act_user" class="btn btn-primary">Tambah User</a>
 
                <br>
@@ -61,7 +61,7 @@
                <tbody>
                    <?php 
                    $id = $this->session->userdata('username')['id'];
-                   if($this->session->userdata('username')['level']==1){
+                   if(in_array($this->session->userdata('username')['level'], array(1,2))){
                     $admin = $this->db->query("SELECT * FROM tb_users")->result_array();
                 }else{
                     $admin = $this->db->query("SELECT * FROM tb_users WHERE id='".$id."'")->result_array();
