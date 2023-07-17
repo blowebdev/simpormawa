@@ -58,6 +58,12 @@ class dashboard extends CI_Controller {
 		$data['halaman'] = 'master/home';
 		$this->load->view('modul',$data);
 	}
+	public function ajukan_proposal()
+	{
+		$this->checkSession();
+		$data['halaman'] = 'ormawa/ajukan_proposal';
+		$this->load->view('modul',$data);
+	}
 	public function proposal()
 	{
 		$this->checkSession();
@@ -158,7 +164,57 @@ class dashboard extends CI_Controller {
 	{
 		$this->checkSession();
 
-		$this->checkSession();
+		$level = $this->session->userdata('username')['level'];
+		$id = $this->session->userdata('username')['id'];
+		$username = $this->session->userdata('username')['username'];
+		$organisasi = $this->session->userdata('username')['organisasi'];
+		if (isset($_REQUEST['simpan'])) {
+
+
+			$config['upload_path']          = './upload/proposal';
+			$config['allowed_types']        = 'pdf';
+			$config['max_size']             = 800000;
+			$config['max_width']            = 100000;
+			$config['max_height']           = 100000;
+			$this->load->library('upload', $config);
+
+			if($_FILES['file']['name']!="") {
+				if (!$this->upload->do_upload('file')){
+					echo $this->upload->display_errors();
+				}else{
+					$upload_data=$this->upload->data();
+					$file=(empty($upload_data['file_name'])) ? "-" : $upload_data['file_name'];
+				}
+			}else{
+				$file = $_REQUEST['file_lama'];
+			}
+
+			if($file){
+
+				$act = $this->db->query("UPDATE tb_proposal SET status='".$_REQUEST['status']."' WHERE id='".$_REQUEST['id']."'");
+				if ($act) {
+					$data = array(
+						'id_proposal' => $_REQUEST['id'],
+						'status' => $_REQUEST['status'],
+						'catatan' => $_REQUEST['catatan'],
+						'username' => $username,
+						'file' => $file,
+						'tgl_kirim' => date('Y-m-d H:i:s')
+					);
+					$result = $this->db->insert('tb_histori_catatan',$data);
+					if ($result) {
+						redirect('ajukan_proposal');
+					}else{
+						echo "<div class='alert alert-danger'>Mohon maaf data gagal disimpan</div>";
+					}
+				}else{
+					redirect('ajukan_proposal');
+				}
+			}
+		}else{
+			// echo "<script>alert('Data gagal diupload')</script>";
+		}
+
 		$data['halaman'] = 'ormawa/kirim_proposal';
 		$this->load->view('modul',$data);
 		

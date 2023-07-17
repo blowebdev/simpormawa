@@ -63,6 +63,7 @@ $route['save_users'] = 'dashboard/save_users';
 $route['send'] = 'dashboard/send';
 $route['dana'] = 'dashboard/dana';
 $route['act_dana'] = 'dashboard/act_dana';
+$route['ajukan_proposal'] = 'dashboard/ajukan_proposal';
 
 
 $route['404_override'] = '';

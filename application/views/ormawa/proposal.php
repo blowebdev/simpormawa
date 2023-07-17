@@ -51,7 +51,6 @@
                                      <th>Tanggal Acara</th>
                                      <th>Tempat</th>
                                      <th>Ketua</th>
-                                     <th>Status</th>
                                      <th nowrap="">Aksi</th>
                                  </tr>
                              </thead>
@@ -80,15 +79,10 @@
                   echo "Nama : ".$ketua[0]."<BR>"; 
                   echo "ID : ".$ketua[1];
                   ?></td>
-                                     <td style="font-weight: bold;">
-                                         <?php echo status($data['status']); ?>
-                                     </td>
                                      <td nowrap="">
                                          <form action="" method="POST">
                                              <a href="<?php echo base_url(); ?>preview?id=<?php echo $data['id']; ?>"
                                                  class="btn btn-primary btn-sm"><i class="ti-eye"></i></a>
-                                             <a href="<?php echo base_url(); ?>send?id=<?php echo $data['id']; ?>"
-                                                 class="btn btn-warning btn-sm"><i class="ti-new-window"></i></a>
                                              <?php if(in_array($level, array(4,3))  AND in_array($data['status'],array(1,3))): ?>
                                              <?php else: ?>
                                              <?php if(!in_array($level, array(2,3))) : ?>
