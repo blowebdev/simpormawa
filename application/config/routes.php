@@ -64,6 +64,7 @@ $route['send'] = 'dashboard/send';
 $route['dana'] = 'dashboard/dana';
 $route['act_dana'] = 'dashboard/act_dana';
 $route['ajukan_proposal'] = 'dashboard/ajukan_proposal';
+$route['act_ajukan_proposal'] = 'dashboard/act_ajukan_proposal';
 
 
 $route['404_override'] = '';

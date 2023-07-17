@@ -100,6 +100,58 @@ class dashboard extends CI_Controller {
 		$data['halaman'] = 'ormawa/act_dana';
 		$this->load->view('modul',$data);
 	}
+	public function act_ajukan_proposal()
+	{
+		$this->checkSession();
+		if (isset($_REQUEST['simpan'])) {
+			$pengesahan = $_REQUEST['halaman_pengesahan'];
+
+
+			$config['upload_path']          = './upload/proposal';
+			$config['allowed_types']        = 'pdf';
+			$config['max_size']             = 800000;
+			$config['max_width']            = 100000;
+			$config['max_height']           = 100000;
+			$this->load->library('upload', $config);
+
+			if($_FILES['file']['name']!="") {
+				if (!$this->upload->do_upload('file')){
+					echo $this->upload->display_errors();
+				}else{
+					$upload_data=$this->upload->data();
+					$file_lama = $_REQUEST['file_lama'];
+					unlink('./upload/proposal/'.$file_lama);
+					$file=(empty($upload_data['file_name'])) ? "-" : $upload_data['file_name'];
+				}
+			}else{
+				$file = $_REQUEST['file_lama'];
+			}
+
+			$data = array(
+				'halaman' => $pengesahan,
+				'file_pdf' => $file,
+				'id_user' => $this->session->userdata('username')['id'],
+				'tanggal' => date('Y-m-d H:i:s')
+			);
+
+			if (!empty($_REQUEST['id'])) {
+				$this->db->where('id', $_REQUEST['id']);
+				$exc = $this->db->update('tb_ajukan_proposal',$data);
+			}else{
+				$exc = $this->db->insert('tb_ajukan_proposal',$data);
+			}
+
+			if ($exc) {
+				echo "<script>alert('Data berhasil disimpan')</script>";
+				redirect('ajukan_proposal');
+			}else{
+				echo "<script>alert('Data gagal disimpan')</script>";
+			}
+
+		}
+		$data['halaman'] = 'ormawa/act_ajukan_proposal';
+		$this->load->view('modul',$data);
+	}
 	public function save_users()
 	{
 		$this->checkSession();
@@ -191,7 +243,7 @@ class dashboard extends CI_Controller {
 
 			if($file){
 
-				$act = $this->db->query("UPDATE tb_proposal SET status='".$_REQUEST['status']."' WHERE id='".$_REQUEST['id']."'");
+				$act = $this->db->query("UPDATE tb_ajukan_proposal SET status='".$_REQUEST['status']."' WHERE id='".$_REQUEST['id']."'");
 				if ($act) {
 					$data = array(
 						'id_proposal' => $_REQUEST['id'],

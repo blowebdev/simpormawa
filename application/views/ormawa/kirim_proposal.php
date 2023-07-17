@@ -12,7 +12,7 @@
          <?php 
         $level = $this->session->userdata('username')['level'];
 if (!empty($_REQUEST['id'])) {
-  $dt = $this->db->query("SELECT * FROM tb_proposal WHERE id='".$_REQUEST['id']."'")->row_array();
+  $dt = $this->db->query("SELECT * FROM tb_ajukan_proposal WHERE id='".$_REQUEST['id']."'")->row_array();
 }
 ?>
 <div class="row">
@@ -32,14 +32,9 @@ if (!empty($_REQUEST['id'])) {
                          <?php if(!in_array($level, array(3))) : ?>
                              <form action="" method="POST" enctype="multipart/form-data">
                                  <div class="form-group">
-                                     <label for="exampleInputEmail1">Acara</label>
+                                     <label for="exampleInputEmail1">User</label>
                                      <input type="text" class="form-control" disabled="" name="acara"
-                                     placeholder="Judul Acara" value="<?php echo $dt['acara']; ?>">
-                                 </div>
-                                 <div class="form-group">
-                                     <label for="exampleInputEmail1">Nomor Surat</label>
-                                     <input type="text" class="form-control" disabled="" name="no_surat"
-                                     placeholder="Nomor Surat" value="<?php echo $dt['no_surat']; ?>">
+                                     placeholder="Judul Acara" value="<?php echo $this->session->userdata('username')['nama']; ?>">
                                  </div>
                                  <div class="form-group">
                                      <label for="exampleInputEmail1">Kirim Ke</label>
@@ -56,7 +51,7 @@ if (!empty($_REQUEST['id'])) {
                                      <?php 
                                      $cek_file = $this->db->query("
                                         SELECT * FROM `tb_histori_catatan`  as a 
-                                        LEFT JOIN tb_proposal as b ON a.id_proposal = b.id
+                                        LEFT JOIN tb_ajukan_proposal as b ON a.id_proposal = b.id
                                         WHERE b.id='".$_REQUEST['id']."'
                                         ORDER BY tgl_kirim DESC
                                         ");

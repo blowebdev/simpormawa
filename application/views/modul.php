@@ -89,11 +89,11 @@
                      <li> <a href="<?php echo base_url() ?>ajukan_proposal" class="waves-effect"><i
                                 class=" ti-clipboard fa-fw"></i> <?php echo (in_array($this->session->userdata('username')['level'], array(4))) ? 'Ajukan Proposal': 'Proposal Masuk'; ?>
                             <?php if(in_array($this->session->userdata('username')['level'], array(1,2))) :  
-            $total_proposal = $this->db->query("SELECT * FROM `tb_proposal` WHERE status=1")->num_rows();
+            $total_proposal = $this->db->query("SELECT * FROM `tb_ajukan_proposal` WHERE status=1")->num_rows();
           ?>
                             <span class="badge bg-danger"><?php echo $total_proposal ?></span>
                             <?php elseif($this->session->userdata('username')['level']==1) : 
-            $total_proposal = $this->db->query("SELECT * FROM `tb_proposal` WHERE status=2")->num_rows();
+            $total_proposal = $this->db->query("SELECT * FROM `tb_ajukan_proposal` WHERE status=2")->num_rows();
           ?>
                             <span class="badge bg-danger"><?php echo $total_proposal ?></span>
                             <?php endif; ?>
