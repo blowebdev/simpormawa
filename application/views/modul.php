@@ -87,7 +87,7 @@
                                 class=" ti-clipboard fa-fw"></i> Data Proposal
                         </a> </li>
                      <li> <a href="<?php echo base_url() ?>ajukan_proposal" class="waves-effect"><i
-                                class=" ti-clipboard fa-fw"></i> Ajukan Proposal
+                                class=" ti-clipboard fa-fw"></i> <?php echo (in_array($level, array(4))) ? 'Ajukan Proposal': 'Proposal Masuk'; ?>
                             <?php if(in_array($this->session->userdata('username')['level'], array(1,2))) :  
             $total_proposal = $this->db->query("SELECT * FROM `tb_proposal` WHERE status=1")->num_rows();
           ?>
