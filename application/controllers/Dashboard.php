@@ -100,6 +100,13 @@ class dashboard extends CI_Controller {
 		$data['halaman'] = 'ormawa/act_dana';
 		$this->load->view('modul',$data);
 	}
+	public function cek_data_proposal()
+	{
+		$this->checkSession();
+		$data = $this->db->select('acara,tgl_acara,tempat,ketua')
+						 ->get_where('tb_proposal',array('id'=>$_REQUEST['id']))->row_array();
+		echo json_encode($data);
+	}
 	public function act_ajukan_proposal()
 	{
 		$this->checkSession();
@@ -131,6 +138,11 @@ class dashboard extends CI_Controller {
 				'halaman' => $pengesahan,
 				'file_pdf' => $file,
 				'id_user' => $this->session->userdata('username')['id'],
+				'ormawa'=>$_REQUEST['ormawa'],
+				'tgl_kegiatan'=>$_REQUEST['tgl_kegiatan'],
+				'nama_kegiatan'=>$_REQUEST['nama_kegiatan'],
+				'dana_kegiatan'=>$_REQUEST['dana_kegiatan'],
+				'catatan'=>$_REQUEST['catatan'],
 				'tanggal' => date('Y-m-d H:i:s')
 			);
 

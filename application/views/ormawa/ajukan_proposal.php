@@ -38,7 +38,7 @@
  					<?php 
  					$level = $this->session->userdata('username')['level'];
  					if(in_array($this->session->userdata('username')['level'], array(4))) : ?>
- 					<a href="<?php echo base_url(); ?>act_ajukan_proposal" class="btn btn-primary">Ajukan Proposal</a>
+ 						<a href="<?php echo base_url(); ?>act_ajukan_proposal" class="btn btn-primary">Ajukan Proposal</a>
  					<br>
  					<br>
  					<br>
@@ -50,6 +50,8 @@
  								<th>No</th>
  								<th>Tanggal</th>
  								<th>Nama Pengaju</th>
+ 								<th>Nama Kegiatan</th>
+ 								<th>Dana Kegiatan</th>
  								<th>File Proposal</th>
  								<th>Status</th>
  								<th nowrap="">Aksi</th>
@@ -82,6 +84,8 @@
  									<td><?php echo $no++; ?></td>
  									<td><?php echo $data['tanggal']; ?></td>
  									<td><?php echo $nm_ormawa['organisasi']; ?></td>
+ 									<td><?php echo $data['nama_kegiatan']; ?></td>
+ 									<td><?php echo number_format($data['dana_kegiatan']); ?></td>
  									<td>
  										<a href="<?php  echo base_url()."upload/proposal/".$file_e; ?>"><i class="fa fa-download"></i> File Proposal</a>
  									</td>
@@ -90,32 +94,101 @@
  									</td>
  									<td nowrap="">
  										<form action="" method="POST">
- 											<?php if(in_array($level, array(4)) AND !in_array($data['status'], array(1,3))) : ?>
- 												<a href="<?php echo base_url(); ?>act_ajukan_proposal?id=<?php echo $data['id']; ?>"
- 													class="btn btn-primary btn-sm"><i class="ti-pencil"></i> Edit</a>
- 													<input type="hidden" name="id" value="<?php echo $data['id']; ?>">
- 													<button type="submit" class="btn btn-danger btn-sm" name="hapus"
- 													onclick="return conrfim('Apakah anda ingin menghapus data ini ?')"><i
- 													class="ti-trash"></i> Hapus</button>
- 												<?php endif; ?>
- 												<a title="upload_file" href="<?php echo base_url(); ?>send?id=<?php echo $data['id']; ?>"
- 													class="btn btn-success btn-sm"><i class="fa fa-send"></i> <?php echo (in_array($level, array(4))) ? 'Kirim': 'Verifikasi' ?></a>
- 													<?php if(in_array($level, array(4,3))  AND in_array($data['status'],array(1,3))): ?>
- 													<?php else: ?>
+ 											<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detail<?php echo $data['id']; ?>" data-whatever="@mdo"><i class="ti-eye"></i> Detail</button>
 
- 													<?php endif; ?>
- 												</form>
- 											</td>
- 										</tr>
 
- 									<?php endforeach; ?>
- 								</tbody>
- 							</table>
- 						</div>
+ 											<div class="modal fade" id="detail<?php echo $data['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1">
+ 												<div class="modal-dialog" role="document">
+ 													<div class="modal-content">
+ 														<div class="modal-header bg-primary">
+ 															<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+ 															<h4 class="modal-title" id="exampleModalLabel1" style="color:white">Detail</h4>
+ 														</div>
+ 														<div class="modal-body">
+ 															<h4 class="modal-title" id="exampleModalLabel1">Detail Kegiatan</h4>
+ 															<table class="table table-bordered" width="100%">
+ 																<tr>
+ 																	<td>Ormawa</td>
+ 																	<td>: <?php echo $nm_ormawa['organisasi']; ?></td>
+ 																</tr>
+ 																<tr>
+ 																	<td>Tanggal Kegiatan</td>
+ 																	<td>: <?php echo $data['tgl_kegiatan']; ?></td>
+ 																</tr>
+ 																<tr>
+ 																	<td>Nama Kegiatan</td>
+ 																	<td>: <?php echo $data['nama_kegiatan']; ?></td>
+ 																</tr>
+ 																<tr>
+ 																	<td>Dana Kegiatan</td>
+ 																	<td>: <?php echo $data['dana_kegiatan']; ?></td>
+ 																</tr>
+ 															</table>
+ 															<h4 class="modal-title" id="exampleModalLabel1">Histori Catatan Verifikasi</h4>
+ 															<table class="table table-striped" >
+ 																<thead>
+ 																	<tr>
+ 																		<th>Tanggal</th>
+ 																		<th>Username</th>
+ 																		<th>Status</th>
+ 																		<th>File Step Proposal</th>
+ 																		<th>Catatan</th>
+ 																	</tr>
+ 																</thead>
+ 																<tbody>
+ 																	<?php 
+ 																	$result_histori = $this->db->query("SELECT * FROM tb_histori_catatan WHERE id_proposal='".$data['id']."' ORDER BY tgl_kirim DESC")->result_array();
+ 																	foreach ($result_histori as $key => $drt) {
+ 																		?>
+ 																		<tr>
+ 																			<td><?php echo $drt['tgl_kirim']; ?></td>
+ 																			<td><?php echo $drt['username']; ?></td>
+ 																			<td><?php echo status($drt['status']); ?></td>
+ 																			<td>
+ 																				<a href="<?php  echo base_url()."upload/proposal/".$drt['file']; ?>">File Proposal</a>
+ 																			</td>
+ 																			<td><?php echo $drt['catatan']; ?></td>
+ 																		</tr>
+
+ 																	<?php } ?>
+ 																</tbody>
+ 															</table>
+ 														</div>
+ 														<div class="modal-footer">
+ 															<?php if(in_array($level, array(4)) AND !in_array($data['status'], array(1,3))) : ?>
+ 															<a href="<?php echo base_url(); ?>act_ajukan_proposal?id=<?php echo $data['id']; ?>"
+ 																class="btn btn-primary btn-sm"><i class="ti-pencil"></i> Edit</a>
+ 																<input type="hidden" name="id" value="<?php echo $data['id']; ?>">
+ 																<button type="submit" class="btn btn-danger btn-sm" name="hapus"
+ 																onclick="return conrfim('Apakah anda ingin menghapus data ini ?')"><i
+ 																class="ti-trash"></i> Hapus</button>
+ 															<?php endif; ?>
+ 															<a title="upload_file" href="<?php echo base_url(); ?>send?id=<?php echo $data['id']; ?>"
+ 																class="btn btn-success btn-sm"><i class="fa fa-send"></i> <?php echo (in_array($level, array(4))) ? 'Kirim': 'Verifikasi' ?></a>
+ 																<?php if(in_array($level, array(4,3))  AND in_array($data['status'],array(1,3))): ?>
+ 																<?php else: ?>
+
+ 																<?php endif; ?>
+ 																<button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+ 															</div>
+ 														</div>
+ 													</div>
+ 												</div>
+
+
+
+ 											</form>
+ 										</td>
+ 									</tr>
+
+ 								<?php endforeach; ?>
+ 							</tbody>
+ 						</table>
  					</div>
  				</div>
  			</div>
- 			<!-- /.row -->
  		</div>
- 		<!-- /.container-fluid -->
+ 		<!-- /.row -->
  	</div>
+ 	<!-- /.container-fluid -->
+ </div>

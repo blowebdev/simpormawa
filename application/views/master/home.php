@@ -28,9 +28,10 @@
     }
 
     $total = $this->db->query("SELECT * FROM tb_proposal")->num_rows();
-    $dikirim = $this->db->query("SELECT * FROM tb_proposal WHERE status='1' $filter")->num_rows();
-    $ditolak = $this->db->query("SELECT * FROM tb_proposal WHERE status='2' $filter")->num_rows();
-    $disetujui = $this->db->query("SELECT * FROM tb_proposal WHERE status='3' $filter")->num_rows();
+    $total_ajuan = $this->db->query("SELECT * FROM tb_ajukan_proposal")->num_rows();
+    $dikirim = $this->db->query("SELECT * FROM tb_ajukan_proposal WHERE status='1' $filter")->num_rows();
+    $ditolak = $this->db->query("SELECT * FROM tb_ajukan_proposal WHERE status='2' $filter")->num_rows();
+    $disetujui = $this->db->query("SELECT * FROM tb_ajukan_proposal WHERE status='3' $filter")->num_rows();
     ?>
          <!-- /.row -->
          <div class="row">
@@ -41,6 +42,17 @@
                          <p class="text-muted m-b-25">Total Proposal</p>
                          <div class="chart-box">
                              <a href="<?php echo base_url(); ?>proposal" class="btn btn-primary btn-block">Lihat</a>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+              <div class="col-md-3 col-xs-12 col-sm-6">
+                 <div class="white-box">
+                     <div class="text-left">
+                         <h2 class="m-b-0 m-t-0 counter"><?php echo $total_ajuan; ?></h2>
+                         <p class="text-muted m-b-25">Total Proposal Diajukan</p>
+                         <div class="chart-box">
+                             <a href="<?php echo base_url(); ?>ajukan_proposal" class="btn btn-success btn-block">Lihat</a>
                          </div>
                      </div>
                  </div>

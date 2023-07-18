@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 17 Jul 2023 pada 09.15
+-- Waktu pembuatan: 18 Jul 2023 pada 04.29
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.29
 
@@ -30,6 +30,11 @@ SET time_zone = "+00:00";
 CREATE TABLE `tb_ajukan_proposal` (
   `id` int(11) NOT NULL,
   `halaman` text NOT NULL,
+  `ormawa` text NOT NULL,
+  `tgl_kegiatan` date NOT NULL,
+  `nama_kegiatan` text NOT NULL,
+  `dana_kegiatan` text NOT NULL,
+  `catatan` text NOT NULL,
   `file_pdf` text NOT NULL,
   `tanggal` datetime NOT NULL,
   `id_user` int(11) NOT NULL,
@@ -40,8 +45,8 @@ CREATE TABLE `tb_ajukan_proposal` (
 -- Dumping data untuk tabel `tb_ajukan_proposal`
 --
 
-INSERT INTO `tb_ajukan_proposal` (`id`, `halaman`, `file_pdf`, `tanggal`, `id_user`, `status`) VALUES
-(2, '                                                                                               <table width=\"100%\">\r\n    <tbody><tr>\r\n        <td nowrap=\"\" width=\"40%\">1. Nama Kegiatan</td>\r\n        <td>: <i>iSI MANUAL</i></td>\r\n    </tr>\r\n    <tr>\r\n        <td nowrap=\"\" width=\"40%\">2. Nama Organisasi Pelaksana</td>\r\n        <td>: <i>Diisi Manual</i></td>\r\n    </tr>\r\n    <tr>\r\n        <td nowrap=\"\" width=\"40%\">3. Ketua Pelaksana</td>\r\n        <td>: <i>Diisi Manual</i></td>\r\n    </tr>\r\n    <tr>\r\n        <td nowrap=\"\" width=\"40%\">&nbsp; &nbsp; &nbsp; &nbsp; NIM</td>\r\n        <td>: <i>Diisi Manual</i></td>\r\n    </tr>\r\n    <tr>\r\n        <td nowrap=\"\" width=\"40%\">&nbsp; &nbsp; &nbsp; &nbsp; Fakultas / Prodi </td>\r\n        <td>: <i>Diisi Manual</i></td>\r\n    </tr>\r\n    <tr>\r\n        <td nowrap=\"\" width=\"40%\">&nbsp; &nbsp; &nbsp; &nbsp; No. Telp / HP </td>\r\n        <td>: <i>Diisi Manual</i></td>\r\n    </tr>\r\n    <tr>\r\n        <td nowrap=\"\" width=\"40%\">4. Sekertaris Pelaksana</td>\r\n        <td>: <i>Diisi Manual</i></td>\r\n    </tr>\r\n    <tr>\r\n        <td nowrap=\"\" width=\"40%\">&nbsp; &nbsp; &nbsp; &nbsp; NIM</td>\r\n        <td>: <i>Diisi Manual</i></td>\r\n    </tr>\r\n    <tr>\r\n        <td nowrap=\"\" width=\"40%\">&nbsp; &nbsp; &nbsp; &nbsp; Fakultas / Prodi </td>\r\n        <td>: <i>Diisi Manual</i></td>\r\n    </tr>\r\n    <tr>\r\n        <td nowrap=\"\" width=\"40%\">&nbsp; &nbsp; &nbsp; &nbsp; No. Telp / HP </td>\r\n        <td>: <i>Diisi Manual</i></td>\r\n    </tr>\r\n    <tr>\r\n        <td nowrap=\"\" width=\"40%\">5. Jumlah Anggota</td>\r\n        <td>: <i>Diisi Manual</i></td>\r\n    </tr>\r\n    <tr>\r\n        <td nowrap=\"\" width=\"40%\">6. Pembina Organisasi</td>\r\n        <td>: <i>Diisi Manual</i></td>\r\n    </tr>\r\n    <tr>\r\n        <td nowrap=\"\" width=\"40%\">&nbsp; &nbsp; &nbsp; &nbsp; Nama Lengkap</td>\r\n        <td>: <i>Diisi Manual</i></td>\r\n    </tr>\r\n    <tr>\r\n        <td nowrap=\"\" width=\"40%\">&nbsp; &nbsp; &nbsp; &nbsp; No. Telp / HP </td>\r\n        <td>: <i>Diisi Manual</i></td>\r\n    </tr>\r\n    <tr>\r\n        <td nowrap=\"\" width=\"40%\">&nbsp; &nbsp; &nbsp; &nbsp; Tempat Kegiatan </td>\r\n        <td>: <i>Diisi Manual</i></td>\r\n    </tr>\r\n    <tr>\r\n        <td nowrap=\"\" width=\"40%\">7. Jumlah Total</td>\r\n        <td>: <i>Diisi Manual</i></td>\r\n    </tr>\r\n</tbody></table>', 'Hasna_Azifatun_Najwa_K1320039_Penerapan_Graf_Proyek_Matdis1.pdf', '2023-07-17 08:57:39', 6, '2');
+INSERT INTO `tb_ajukan_proposal` (`id`, `halaman`, `ormawa`, `tgl_kegiatan`, `nama_kegiatan`, `dana_kegiatan`, `catatan`, `file_pdf`, `tanggal`, `id_user`, `status`) VALUES
+(3, '                                          <table width=\"100%\">\r\n    <tbody><tr>\r\n        <td nowrap=\"\" width=\"40%\">1. Nama Kegiatan</td>\r\n        <td>: <i>Nama Kegiatan</i></td>\r\n    </tr>\r\n    <tr>\r\n        <td nowrap=\"\" width=\"40%\">2. Nama Organisasi Pelaksana</td>\r\n        <td>: <i>Diisi Manual</i></td>\r\n    </tr>\r\n    <tr>\r\n        <td nowrap=\"\" width=\"40%\">3. Ketua Pelaksana</td>\r\n        <td>: <i>Diisi Manual</i></td>\r\n    </tr>\r\n    <tr>\r\n        <td nowrap=\"\" width=\"40%\">&nbsp; &nbsp; &nbsp; &nbsp; NIM</td>\r\n        <td>: <i>Diisi Manual</i></td>\r\n    </tr>\r\n    <tr>\r\n        <td nowrap=\"\" width=\"40%\">&nbsp; &nbsp; &nbsp; &nbsp; Fakultas / Prodi </td>\r\n        <td>: <i>Diisi Manual</i></td>\r\n    </tr>\r\n    <tr>\r\n        <td nowrap=\"\" width=\"40%\">&nbsp; &nbsp; &nbsp; &nbsp; No. Telp / HP </td>\r\n        <td>: <i>Diisi Manual</i></td>\r\n    </tr>\r\n    <tr>\r\n        <td nowrap=\"\" width=\"40%\">4. Sekertaris Pelaksana</td>\r\n        <td>: <i>Diisi Manual</i></td>\r\n    </tr>\r\n    <tr>\r\n        <td nowrap=\"\" width=\"40%\">&nbsp; &nbsp; &nbsp; &nbsp; NIM</td>\r\n        <td>: <i>Diisi Manual</i></td>\r\n    </tr>\r\n    <tr>\r\n        <td nowrap=\"\" width=\"40%\">&nbsp; &nbsp; &nbsp; &nbsp; Fakultas / Prodi </td>\r\n        <td>: <i>Diisi Manual</i></td>\r\n    </tr>\r\n    <tr>\r\n        <td nowrap=\"\" width=\"40%\">&nbsp; &nbsp; &nbsp; &nbsp; No. Telp / HP </td>\r\n        <td>: <i>Diisi Manual</i></td>\r\n    </tr>\r\n    <tr>\r\n        <td nowrap=\"\" width=\"40%\">5. Jumlah Anggota</td>\r\n        <td>: <i>Diisi Manual</i></td>\r\n    </tr>\r\n    <tr>\r\n        <td nowrap=\"\" width=\"40%\">6. Pembina Organisasi</td>\r\n        <td>: <i>Diisi Manual</i></td>\r\n    </tr>\r\n    <tr>\r\n        <td nowrap=\"\" width=\"40%\">&nbsp; &nbsp; &nbsp; &nbsp; Nama Lengkap</td>\r\n        <td>: <i>Diisi Manual</i></td>\r\n    </tr>\r\n    <tr>\r\n        <td nowrap=\"\" width=\"40%\">&nbsp; &nbsp; &nbsp; &nbsp; No. Telp / HP </td>\r\n        <td>: <i>Diisi Manual</i></td>\r\n    </tr>\r\n    <tr>\r\n        <td nowrap=\"\" width=\"40%\">&nbsp; &nbsp; &nbsp; &nbsp; Tempat Kegiatan </td>\r\n        <td>: <i>Diisi Manual</i></td>\r\n    </tr>\r\n    <tr>\r\n        <td nowrap=\"\" width=\"40%\">7. Jumlah Total</td>\r\n        <td>: <i>Diisi Manual</i></td>\r\n    </tr>\r\n</tbody></table>', 'UKM TARI', '2023-06-13', 'Acara istigosah', '100000000', 'Catatan', 'Hasna_Azifatun_Najwa_K1320039_Penerapan_Graf_Proyek_Matdis3.pdf', '2023-07-18 04:23:40', 6, '');
 
 -- --------------------------------------------------------
 
@@ -87,7 +92,8 @@ CREATE TABLE `tb_histori_catatan` (
 
 INSERT INTO `tb_histori_catatan` (`id`, `id_proposal`, `status`, `catatan`, `tgl_kirim`, `file`, `username`) VALUES
 (9, 2, '1', 'Ok', '2023-07-17 09:02:45', 'Hasna_Azifatun_Najwa_K1320039_Penerapan_Graf_Proyek_Matdis2.pdf', 'tari'),
-(10, 2, '2', 'Ok', '2023-07-17 09:08:35', 'Hasna_Azifatun_Najwa_K1320039_Penerapan_Graf_Proyek_Matdis2.pdf', 'bakm');
+(10, 2, '2', 'Ok', '2023-07-17 09:08:35', 'Hasna_Azifatun_Najwa_K1320039_Penerapan_Graf_Proyek_Matdis2.pdf', 'bakm'),
+(11, 3, '1', 'Koreksi', '2023-07-18 04:18:00', 'Hasna_Azifatun_Najwa_K1320039_Penerapan_Graf_Proyek_Matdis4.pdf', 'tari');
 
 -- --------------------------------------------------------
 
@@ -196,7 +202,7 @@ ALTER TABLE `tb_users`
 -- AUTO_INCREMENT untuk tabel `tb_ajukan_proposal`
 --
 ALTER TABLE `tb_ajukan_proposal`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_dana`
@@ -208,7 +214,7 @@ ALTER TABLE `tb_dana`
 -- AUTO_INCREMENT untuk tabel `tb_histori_catatan`
 --
 ALTER TABLE `tb_histori_catatan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_proposal`
