@@ -14,7 +14,7 @@ class dashboard extends CI_Controller {
 		$this->load->model('M_Datatables');
 
 		if(empty($this->session->userdata['username'])){
-			$this->load->view('login');
+			// $this->load->view('front_page');
 		}
 	}
 
@@ -23,9 +23,10 @@ class dashboard extends CI_Controller {
 		if(!empty($this->session->userdata['username'])){
 			$this->dashboard();
 		}else{
-			$this->login();
+			$this->load->view('front_page');
 		}
 	}
+
 
 	public function login(){
 		try {
@@ -51,6 +52,7 @@ class dashboard extends CI_Controller {
 		} catch (Exception $e) {
 			echo "Error ".$e;
 		}
+		$this->load->view('login');
 	}
 	public function dashboard()
 	{
@@ -135,7 +137,7 @@ class dashboard extends CI_Controller {
 			}
 
 			$data = array(
-				'halaman' => $pengesahan,
+				// 'halaman' => $pengesahan,
 				'file_pdf' => $file,
 				'id_user' => $this->session->userdata('username')['id'],
 				'ormawa'=>$_REQUEST['ormawa'],

@@ -23,14 +23,14 @@
                    <form action="" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="id" value="<?php echo $_REQUEST['id']; ?>">
                     <div class="form-group">
-                     <label for="exampleInputEmail1">Halaman Pengesahan</label>
+                     <!-- <label for="exampleInputEmail1">Halaman Pengesahan</label>
                      <textarea class="form-control" rows="15" name="halaman_pengesahan"
                      id="halaman_pengesahan" required="">
                      <?php if(!empty($dt['halaman'])){
                         echo $dt['halaman'];
                     } else {
                         include 'halaman_pengesahan.php';
-                    } ?></textarea>
+                    } ?></textarea> -->
                 </div>
                  <div class="form-group">
                    <label for="exampleInputEmail1">IMPORT DATA DARI PROPOSAL</label>
