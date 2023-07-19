@@ -143,7 +143,8 @@ class dashboard extends CI_Controller {
 				'nama_kegiatan'=>$_REQUEST['nama_kegiatan'],
 				'dana_kegiatan'=>$_REQUEST['dana_kegiatan'],
 				'catatan'=>$_REQUEST['catatan'],
-				'tanggal' => date('Y-m-d H:i:s')
+				'tanggal' => date('Y-m-d H:i:s'),
+				'status' => 1
 			);
 
 			if (!empty($_REQUEST['id'])) {
@@ -262,7 +263,7 @@ class dashboard extends CI_Controller {
 						'status' => $_REQUEST['status'],
 						'catatan' => $_REQUEST['catatan'],
 						'username' => $username,
-						'file' => $file,
+						// 'file' => $file,
 						'tgl_kirim' => date('Y-m-d H:i:s')
 					);
 					$result = $this->db->insert('tb_histori_catatan',$data);

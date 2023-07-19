@@ -58,21 +58,21 @@ if (!empty($_REQUEST['id'])) {
                                      $cek_file_tot = $cek_file->num_rows();
                                      $datane = $cek_file->row_array();
                                         if(in_array($this->session->userdata('username')['level'], array(4))) : ?>
-                                         <div class="form-group">
+                                         <!-- <div class="form-group">
                                              <label for="exampleInputEmail1">Upload File Proposal</label>
                                              <input type="file" name="file" class="form-control">
-                                         </div>
+                                         </div> -->
                                          <?php else : ?>
                                             <?php if(in_array($level, array(1))) :  ?>
-                                            <label for="exampleInputEmail1">Upload File Proposal</label>
+                                            <!-- <label for="exampleInputEmail1">Upload File Proposal</label>
                                             <input type="file" name="file" class="form-control">
                                             <input type="hidden" name="file_lama" value="<?php echo $datane['file'] ?>">
-                                             <a href="<?php  echo base_url()."upload/proposal/".$datane['file']; ?>"><?php echo $datane['file']; ?></a>
+                                             <a href="<?php  echo base_url()."upload/proposal/".$datane['file']; ?>"><?php echo $datane['file']; ?></a> -->
                                             <?php else : ?>
                                                 <?php if(!empty($datane)) : ?>
-                                                    <label for="exampleInputEmail1">Upload File Proposal</label>
+                                                   <!--  <label for="exampleInputEmail1">Upload File Proposal</label>
                                                     <a href="<?php  echo base_url()."upload/proposal/".$datane['file']; ?>"><?php echo $datane['file']; ?></a>
-                                                    <input type="hidden" name="file_lama" value="<?php echo $datane['file'] ?>">
+                                                    <input type="hidden" name="file_lama" value="<?php echo $datane['file'] ?>"> -->
                                                 <?php endif; ?>
                                             <?php endif; ?>
                                         <?php endif; ?>
@@ -104,7 +104,7 @@ if (!empty($_REQUEST['id'])) {
                                  <th>Tanggal</th>
                                  <th>Username</th>
                                  <th>Status</th>
-                                 <th>File Step Proposal</th>
+                                 <!-- <th>File Step Proposal</th> -->
                                  <th>Catatan</th>
                              </tr>
                          </thead>
@@ -117,9 +117,9 @@ if (!empty($_REQUEST['id'])) {
                                  <td><?php echo $data['tgl_kirim']; ?></td>
                                  <td><?php echo $data['username']; ?></td>
                                  <td><?php echo status($data['status']); ?></td>
-                                 <td>
+                                 <!-- <td>
                                      <a href="<?php  echo base_url()."upload/proposal/".$data['file']; ?>">File Proposal</a>
-                                 </td>
+                                 </td> -->
                                  <td><?php echo $data['catatan']; ?></td>
                              </tr>
 
