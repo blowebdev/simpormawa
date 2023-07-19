@@ -254,7 +254,7 @@ class dashboard extends CI_Controller {
 				$file = $_REQUEST['file_lama'];
 			}
 
-			if($file){
+			if($username){
 
 				$act = $this->db->query("UPDATE tb_ajukan_proposal SET status='".$_REQUEST['status']."' WHERE id='".$_REQUEST['id']."'");
 				if ($act) {
